@@ -9,6 +9,41 @@ public class Frame {
 
     public Frame(String roll) {
 
+        //Strike
+        if (roll.equalsIgnoreCase("X")) {
+            isStrike = true;
+            isSpare = false;
+            frameTotal = 10;
+        }
+
+        //Spare
+        else if (roll.length() > 1 && roll.charAt(1) == '/') {
+            isStrike = false;
+            isSpare = true;
+            frameTotal = 10;
+        }
+
+        //not all Pins hit
+        else {
+            char firstDigit = roll.charAt(0);
+            char secondDigit = roll.charAt(1);
+            isStrike = false;
+            isSpare = false;
+            if(firstDigit == '-') {
+                firstThrow = 0;
+            }
+            else {
+                firstThrow = Character.getNumericValue(firstDigit);
+            }
+            if(secondDigit == '-') {
+                secondThrow = 0;
+            }
+            else {
+                secondThrow = Character.getNumericValue(secondDigit);;
+            }
+
+            frameTotal = firstThrow + secondThrow;
+        }
     }
 
     public int getFirstThrow() {
