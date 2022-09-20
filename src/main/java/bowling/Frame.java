@@ -7,4 +7,8 @@ public class Frame {
     private boolean isStrike;
     private boolean isSpare;
 
+    public Frame(String roll) {
+
+    }
+
 }
