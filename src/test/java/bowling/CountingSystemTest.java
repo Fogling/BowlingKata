@@ -26,10 +26,10 @@ public class CountingSystemTest {
         countingSystem = new CountingSystem();
 
         countingSystem.calcGameScore("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-");
-        assertThat(countingSystem.getTotalScore()).as("Strike in First Roll and Ones").isEqualTo(90);
+        assertThat(countingSystem.getTotalScore()).as("All Nines and Miss").isEqualTo(90);
 
         countingSystem.calcGameScore("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5");
-        assertThat(countingSystem.getTotalScore()).as("Strike in First Roll and Ones").isEqualTo(150);
+        assertThat(countingSystem.getTotalScore()).as("All Fives and Spare").isEqualTo(150);
 
         countingSystem.calcGameScore("X 11 11 11 11 11 11 11 11 11");
         assertThat(countingSystem.getTotalScore()).as("Strike in First Roll and Ones").isEqualTo(30);
@@ -62,7 +62,7 @@ public class CountingSystemTest {
         assertThat(countingSystem.getTotalScore()).as("Realistic Game 1").isEqualTo(120);
 
         countingSystem.calcGameScore("2/ X -- 4/ 5- X 34 71 5/ X 3/");
-        assertThat(countingSystem.getTotalScore()).as("Realistic Game 1").isEqualTo(122);
+        assertThat(countingSystem.getTotalScore()).as("Realistic Game 2").isEqualTo(122);
 
     }
 }
