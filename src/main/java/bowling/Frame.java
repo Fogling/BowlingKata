@@ -8,12 +8,14 @@ public class Frame {
     private boolean isSpare;
 
     public Frame(String roll) {
+        char firstDigit = roll.charAt(0);
 
         //Strike
         if (roll.equalsIgnoreCase("X")) {
             isStrike = true;
             isSpare = false;
             frameValue = 10;
+            firstThrow = 10;
         }
 
         //Spare
@@ -21,11 +23,19 @@ public class Frame {
             isStrike = false;
             isSpare = true;
             frameValue = 10;
+
+            if(firstDigit == '-') {
+                firstThrow = 0;
+                secondThrow = 10;
+            }
+            else {
+                firstThrow = Character.getNumericValue(firstDigit);
+                secondThrow = 10-firstThrow;
+            }
         }
 
         //not all Pins hit
         else {
-            char firstDigit = roll.charAt(0);
             char secondDigit = roll.charAt(1);
             isStrike = false;
             isSpare = false;

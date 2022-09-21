@@ -41,7 +41,7 @@ public class CountingSystemTest {
         assertThat(countingSystem.getTotalScore()).as("Spare in First Roll and Ones, One after Spare").isEqualTo(29);
 
         countingSystem.calcGameScore("4/ -1 11 11 11 11 11 11 11 11");
-        assertThat(countingSystem.getTotalScore()).as("Spare in First Roll and Ones, Miss after Spare").isEqualTo(28);
+        assertThat(countingSystem.getTotalScore()).as("Spare in First Roll and Ones, Miss after Spare").isEqualTo(27);
 
         countingSystem.calcGameScore("11 11 11 11 11 11 11 11 11 4/ 1");
         assertThat(countingSystem.getTotalScore()).as("Spare in Last Roll and Ones").isEqualTo(29);
