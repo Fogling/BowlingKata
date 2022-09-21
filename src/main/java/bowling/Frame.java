@@ -3,7 +3,7 @@ package bowling;
 public class Frame {
     private int firstThrow;
     private int secondThrow;
-    private int frameTotal;
+    private int frameValue; // Value BEFORE Strike or Spare Bonus
     private boolean isStrike;
     private boolean isSpare;
 
@@ -13,14 +13,14 @@ public class Frame {
         if (roll.equalsIgnoreCase("X")) {
             isStrike = true;
             isSpare = false;
-            frameTotal = 10;
+            frameValue = 10;
         }
 
         //Spare
         else if (roll.length() > 1 && roll.charAt(1) == '/') {
             isStrike = false;
             isSpare = true;
-            frameTotal = 10;
+            frameValue = 10;
         }
 
         //not all Pins hit
@@ -42,7 +42,7 @@ public class Frame {
                 secondThrow = Character.getNumericValue(secondDigit);;
             }
 
-            frameTotal = firstThrow + secondThrow;
+            frameValue = firstThrow + secondThrow;
         }
     }
 
@@ -62,12 +62,12 @@ public class Frame {
         this.secondThrow = secondThrow;
     }
 
-    public int getFrameTotal() {
-        return frameTotal;
+    public int getFrameValue() {
+        return frameValue;
     }
 
-    public void setFrameTotal(int frameTotal) {
-        this.frameTotal = frameTotal;
+    public void setFrameValue(int frameValue) {
+        this.frameValue = frameValue;
     }
 
     public boolean isStrike() {
